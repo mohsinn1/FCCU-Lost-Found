@@ -154,4 +154,32 @@ class ResendOTPSerializer(serializers.Serializer):
 
         return profile
 
+class LoginSerializer(serializers.Serializer):
+    fccu_email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
 
+    def validate(self,attrs):
+
+        email = attrs.get('fccu_email')
+        password = attrs.get('password')
+
+        try:
+            user = User.objects.get(email__iexact=email)
+
+        except User.DoesNotExist:
+            raise serializers.ValidationError({
+                'non_field_errors': 'Invalid email or password.'
+            })
+
+        if not user.check_password(password):
+            raise serializers.ValidationError({
+                'non_field_errors': 'Invalid email or password.'
+            })
+
+        if not user.studentprofile.is_verified or not user.is_active:
+            raise serializers.ValidationError({
+                'non_field_errors': 'Account has not been verified.'
+            })
+
+        attrs['user'] = user
+        return attrs
