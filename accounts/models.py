@@ -23,3 +23,11 @@ class StudentProfile(models.Model):
         
         return self.otp_created_at + timedelta(minutes=10) > timezone.now()
 
+
+
+
+
+
+
+
+
