@@ -7,7 +7,7 @@ function Home(){
             <section className='home-hero'>
                 <p className='eyebrow-text'>FCCU CAMPUS COMMUNITY</p>
                 <h1 className='main-heading'>
-                    <span className='heading-highlight'> Reconnect <br/></span>
+                    <span className='heading-highlight'>Reconnect<br/></span>
                     Lost Items
                 </h1>
                 <p className='description'>
