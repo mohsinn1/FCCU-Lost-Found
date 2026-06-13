@@ -168,11 +168,7 @@
 
 .form-error {
   margin: 18px 0 0;
-  padding: 12px 14px;
   color: #ff6b7a;
-  background-color: color-mix(in srgb, #d83d52 13%, transparent);
-  border: 1px solid color-mix(in srgb, #d83d52 36%, transparent);
-  border-radius: 12px;
   font-size: 0.86rem;
   line-height: 1.5;
   overflow-wrap: anywhere;

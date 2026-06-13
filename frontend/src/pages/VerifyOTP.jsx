@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import './Register.css'
+import getErrorMessage from '../utils/getErrorMessage'
 
 function VerifyOTP() {
   const [otp, setOtp] = useState('')
@@ -38,7 +39,7 @@ function VerifyOTP() {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(JSON.stringify(data))
+        throw new Error(getErrorMessage(data))
       }
 
       setSuccess(data.message)
@@ -77,7 +78,7 @@ function VerifyOTP() {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(JSON.stringify(data))
+        throw new Error(getErrorMessage(data))
       }
 
       setResendMessage(data.message)

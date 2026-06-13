@@ -1,8 +1,10 @@
 import {useState} from "react";
 import {useLocation, useNavigate} from "react-router-dom";
+import './Register.css'
+import getErrorMessage from '../utils/getErrorMessage'
 
 
-function Login(){
+function Login({setIsLoggedIn}){
     const location = useLocation()
     const navigate = useNavigate()
     const verifiedEmail = location.state?.fccu_email || ''
@@ -39,12 +41,13 @@ function Login(){
 
             const data = await response.json()
             if (!response.ok) {
-                throw new Error(JSON.stringify(data))
+                throw new Error(getErrorMessage(data))
             }
 
             localStorage.setItem('token', data.token)
             localStorage.setItem('full_name', data.full_name)
             localStorage.setItem('email', data.email)
+            setIsLoggedIn(true)
             navigate('/items')
 
         } catch (error) {
@@ -55,7 +58,19 @@ function Login(){
     }
 
     return(
-        <form className={'login-form'} onSubmit={handleSubmit}>
+        <div className="auth-page">
+          <section className="auth-intro">
+            <p className="auth-eyebrow">WELCOME BACK</p>
+            <h1>
+              <span>Log In</span> to Your Account
+            </h1>
+            <p>
+              Access your account to report items, manage your posts, and help
+              reconnect lost belongings with their owners.
+            </p>
+          </section>
+
+        <form className="auth-form" onSubmit={handleSubmit}>
 
             <div className="form-field">
           <label htmlFor="fccu_email">FCCU Email</label>
@@ -81,10 +96,11 @@ function Login(){
             />
           </div>
             {error && <p className="form-error">{error}</p>}
-            <button className="login-submit" type="submit" disabled={loading}>
+            <button className="auth-submit" type="submit" disabled={loading}>
           {loading ? 'Logging in...' : 'Log In'}
         </button>
         </form>
+        </div>
     )
 }
 

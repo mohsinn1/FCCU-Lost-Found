@@ -8,8 +8,10 @@ import Register from './pages/Register'
 import VerifyOTP from './pages/VerifyOTP'
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(Boolean(localStorage.getItem('token')))
   const [theme, setTheme] = useState(() => {
   const savedTheme = localStorage.getItem('theme')
+
 
   if (savedTheme) {
     return savedTheme
@@ -31,11 +33,11 @@ function App() {
 
   return (
       <>
-      <Navbar theme ={theme} toggleTheme = {toggleTheme}/>
+      <Navbar theme ={theme} toggleTheme = {toggleTheme} isLoggedIn = {isLoggedIn} setIsLoggedIn = {setIsLoggedIn}/>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setIsLoggedIn = {setIsLoggedIn} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/verify-otp" element={<VerifyOTP />} />
         </Routes>

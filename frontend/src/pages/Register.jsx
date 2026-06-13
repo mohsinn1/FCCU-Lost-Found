@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './Register.css'
 import { useNavigate } from 'react-router-dom'
+import getErrorMessage from '../utils/getErrorMessage'
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -42,7 +43,7 @@ function Register() {
 
         const data = await response.json()
         if (!response.ok){
-            throw new Error(JSON.stringify(data))
+            throw new Error(getErrorMessage(data))
         }
 
         setSuccess('Account successfully created! Redirecting to OTP verification...')
