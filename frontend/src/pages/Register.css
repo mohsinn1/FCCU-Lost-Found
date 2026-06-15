@@ -299,7 +299,7 @@
 
 .success-modal p {
   margin: 10px 0 0;
-  color: var(--color-muted);
+  color: var(--color-text-muted);
   font-size: 1rem;
 }
 
