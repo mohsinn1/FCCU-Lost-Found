@@ -39,6 +39,7 @@ function Navbar({theme, toggleTheme, isLoggedIn, setIsLoggedIn}){
                     {isLoggedIn ? (
                         <>
                             <Link to="/items">Browse Items</Link>
+                            <Link to="/add-item">Report Item</Link>
                             <Link to="/my-items">My Items</Link>
                         </>
                     ) : (
