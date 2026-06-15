@@ -266,3 +266,10 @@
     height: 250px;
   }
 }
+
+
+.item-card-link,
+.item-card-link:visited {
+  color: inherit;
+  text-decoration: none;
+}

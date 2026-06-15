@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import './Items.css'
+import {Link} from "react-router-dom";
 
 function Items(){
     const [items, setItems] = useState([])
@@ -99,9 +100,13 @@ function Items(){
             ) : (
                 <div className="items-grid">
                     {items.map((item) => (
+                        <Link
+                            className="item-card-link"
+                            key={item.id}
+                            to={`/items/${item.id}`}
+                        >
                         <article
                             className={`item-card ${item.status === 'Claimed' ? 'item-card-claimed' : ''}`}
-                            key={item.id}
                         >
                             <div className="item-image-wrapper">
                                 <img
@@ -134,6 +139,7 @@ function Items(){
                                 </div>
                             </div>
                         </article>
+                        </Link>
                     ))}
                 </div>
             )}
