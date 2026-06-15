@@ -40,8 +40,12 @@ function ItemDetails(){
 
     return(
         <div className="item-details-page">
-            <Link className="details-back-link" to="/items">
-                Back to items
+            <Link
+                className="details-back-link"
+                to="/items"
+                aria-label="Back to items"
+            >
+                ‹
             </Link>
 
             <section className="details-card">
@@ -76,6 +80,16 @@ function ItemDetails(){
                         <div>
                             <span>Reported By</span>
                             <p>{item.created_by_name}</p>
+                        </div>
+
+                        <div>
+                            <span>Roll Number</span>
+                            <p>{item.created_by_email.split('@')[0]}</p>
+                        </div>
+
+                        <div>
+                            <span>FCCU Email</span>
+                            <p>{item.created_by_email}</p>
                         </div>
 
                         <div>

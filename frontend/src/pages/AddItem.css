@@ -1,0 +1,146 @@
+.add-item-page {
+  width: min(1060px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 64px 0 80px;
+}
+
+.add-item-intro {
+  max-width: 660px;
+  margin-bottom: 38px;
+}
+
+.add-item-eyebrow {
+  margin: 0 0 16px;
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.add-item-intro h1 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(2.8rem, 6vw, 4.7rem);
+  font-style: italic;
+  font-weight: 430;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.add-item-intro h1 span {
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.add-item-intro > p:last-child {
+  max-width: 570px;
+  margin: 22px 0 0;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.add-item-form {
+  padding: 38px;
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 28px;
+}
+
+.add-item-form .form-field select,
+.add-item-form .form-field textarea {
+  width: 100%;
+  padding: 0 16px;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 22px;
+  outline: none;
+}
+
+.add-item-form .form-field select {
+  min-height: 50px;
+  padding: 0 44px 0 16px;
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--color-text-muted) 50%),
+    linear-gradient(135deg, var(--color-text-muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 22px) 21px,
+    calc(100% - 17px) 21px;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.add-item-form > .form-grid + .form-field {
+  margin-top: 20px;
+}
+
+.add-item-form .form-field textarea {
+  min-height: 130px;
+  padding-top: 15px;
+  resize: vertical;
+}
+
+.add-item-form .form-field select:focus,
+.add-item-form .form-field textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-primary-soft);
+}
+
+.add-item-form .form-field textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.add-item-form input[type='file'] {
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.add-item-form input[type='file']::file-selector-button {
+  margin-right: 12px;
+  padding: 8px 14px;
+  color: #061019;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.add-item-submit {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 24px;
+  color: #061019;
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  border-radius: 999px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+[data-theme='dark'] .add-item-submit {
+  background-color: var(--color-primary);
+}
+
+.add-item-submit:hover:not(:disabled) {
+  border-color: var(--color-primary-hover);
+}
+
+.add-item-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+@media (max-width: 620px) {
+  .add-item-page {
+    width: min(100% - 28px, 1060px);
+    padding: 44px 0 60px;
+  }
+
+  .add-item-form {
+    padding: 26px 20px;
+    border-radius: 22px;
+  }
+}

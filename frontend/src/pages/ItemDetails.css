@@ -5,16 +5,25 @@
 }
 
 .details-back-link {
-  display: inline-block;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 24px;
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 2.25rem;
+  line-height: 1;
   text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    text-shadow 0.2s ease;
 }
 
 .details-back-link:hover {
   color: var(--color-primary);
+  transform: translateX(-3px);
+  text-shadow: 0 0 10px var(--color-primary);
 }
 
 .details-card {

@@ -8,6 +8,7 @@ import Register from './pages/Register'
 import VerifyOTP from './pages/VerifyOTP'
 import Items from './pages/Items'
 import ItemDetails from './pages/ItemDetails.jsx'
+import AddItem from './pages/AddItem'
 
 function App(){
     const [isLoggedIn, setIsLoggedIn] = useState(Boolean(localStorage.getItem('token')))
@@ -49,6 +50,7 @@ function App(){
                     <Route path="/verify-otp" element={<VerifyOTP />} />
                     <Route path="/items" element={<Items />} />
                     <Route path = "/items/:id" element={<ItemDetails/>}/>
+                    <Route path="/add-item" element={<AddItem />} />
                 </Routes>
             </main>
         </>
